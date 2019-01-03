@@ -1,0 +1,40 @@
+<section>
+  <div class="padding-right row product-details"><!--product-details-->
+    <div class="col-sm-5">
+      <div id="product-images">
+        <div id="product-big-image" class='tmb tmb-big'>
+          <% @product.images.each do |image| %>
+            <% if image == @product.images.first %>
+              <%= image_tag(image.image.url(), class: 'img-show active', id: 'img' + image.id.to_s) %>
+            <% else %>
+              <%= image_tag(image.image.url(), class: 'img-show', id: 'img' + image.id.to_s) %>
+            <% end %>
+          <% end %>
+        </div>
+        <ul id="product-thumbnails" class="thumbnails list-inline" data-hook="">
+          <% @product.images.each do |image| %>
+            <li class="tmb">
+              <%= image_tag(image.image.url(:thumb), data: image.id) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="product-information"><!--/product-information-->
+        <h2><%= @product.title %></h2>
+        <span>
+          <span><%= @product.price %> грн.</span>
+
+          <!-- <button type="button" class="btn btn-fefault cart"> -->
+            <%= link_to(new_order_path(:product => @product.id), class: "btn btn-fefault cart", type: "button") do %>
+             <i class="fa fa-shopping-cart"></i>
+               Купить
+            <% end %>
+            <br>
+        <p><b>Описание:</b></p>
+        <p><%= @product.description %></p>
+      </div><!--/product-information-->
+    </div>
+  </div>
+</section>

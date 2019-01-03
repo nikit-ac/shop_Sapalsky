@@ -1,0 +1,13 @@
+ru:
+  activemodel:
+    attributes:
+      product:
+        title: 'Название'
+        description: 'Описание'
+        price: 'Цена'
+
+# ru.activerecord.errors.models.product.attributes.status.inclusion
+
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"

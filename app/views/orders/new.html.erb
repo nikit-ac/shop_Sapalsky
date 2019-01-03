@@ -1,0 +1,42 @@
+<section id="do_action">
+  <div class="container">
+    <div class="heading">
+      <h3>Форма оформления заказа</h3>
+      <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+    </div>
+        <div class="chose_area">
+        <%= form_for @order,  class: 'user_option' do |form| %>
+          <%= form.hidden_field :product_id %>
+
+          <div class="form-group row">
+            <%= form.label :name, class: "col-sm-2 col-form-label"   %>
+            <div class="col-sm-8">
+              <%= form.text_field :name %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= form.label :email, class: "col-sm-2 col-form-label"   %>
+            <div class="col-sm-8">
+              <%= form.email_field :email %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= form.label :phone, class: "col-sm-2 col-form-label"   %>
+            <div class="col-sm-8">
+              <%= form.telephone_field :phone %>
+            </div>
+          </div>
+          <div class="form-group ">
+              <%= form.label :delivery_info %>
+              <%= form.text_area :delivery_info, class: "form-control" %>
+          </div>
+
+          <%= link_to 'Назад', :back, class: 'btn btn-default update' %>
+          <%= form.submit 'Отправить', class: 'btn btn-default check_out' %>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!--/#do_action-->

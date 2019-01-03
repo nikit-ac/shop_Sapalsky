@@ -1,0 +1,36 @@
+<div class="col-sm-4">
+    <div class="product-image-wrapper">
+      <div class="single-products">
+          <div class="productinfo text-center">
+            <%= image_tag(product.images.first.image.url(:mini)) %>
+            <h2><%= product.price %> грн.</h2>
+            <p><%= product.title %></p>
+            <%= link_to(product_path(product), :remote => false, class: "btn btn-default add-to-cart") do %>
+              <i class='fa fa-shopping-cart'></i>Подробнее
+            <% end %>
+          </div>
+          <div class="product-overlay">
+            <div class="overlay-content">
+              <h2><%= product.price %> грн.</h2>
+              <p><%= product.title %></p>
+                <%= link_to(product_path(product), :remote => false, class: "btn btn-default add-to-cart") do %>
+                  <i class='fa fa-shopping-cart'></i>Подробнее
+                <% end %>
+            </div>
+          </div>
+      </div>
+      <div class="choose">
+        <ul class="nav nav-pills nav-justified">
+          <li>
+              <%= link_to(new_order_path(:product => product.id)) do %>
+                <i class="fa fa-plus-square"></i>Купить</a>
+              <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+
+
+
