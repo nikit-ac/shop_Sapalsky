@@ -23,17 +23,17 @@
     <div class="col-sm-7">
       <div class="product-information"><!--/product-information-->
         <h2><%= @product.title %></h2>
-        <span>
-          <span><%= @product.price %> грн.</span>
-
-          <!-- <button type="button" class="btn btn-fefault cart"> -->
-            <%= link_to(new_order_path(:product => @product.id), class: "btn btn-fefault cart", type: "button") do %>
+          <span class='price'><%= @product.price %> грн.</span>
+            <%= link_to(new_product_order_path(@product), class: "btn btn-fefault cart", type: "button") do %>
              <i class="fa fa-shopping-cart"></i>
                Купить
             <% end %>
             <br>
         <p><b>Описание:</b></p>
         <p><%= @product.description %></p>
+        <p>
+          <a><i class="fa fa-tags"></i> <%= @product.tag_list %>
+        </p>
       </div><!--/product-information-->
     </div>
   </div>

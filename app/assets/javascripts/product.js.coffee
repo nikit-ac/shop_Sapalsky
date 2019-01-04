@@ -9,5 +9,25 @@ $(document).ready ->
     console.log(2)
     )
 
+ #price range
+  value = () ->
+    $('.tooltip-inner').text().split(' : ')
+
+  slider = $('#sl2').slider().on('slideStop', (ev) ->
+    $.ajax 'products/range' ,
+      type: "GET",
+      data:
+        prices: JSON.stringify(value())
+      asnyc: false,
+      success: (doc)->
+        from = doc.indexOf("<div class='row' id='products'>")
+        to = doc.indexOf("</div><!--id='products'-->")
+        div = doc.substring(from, to)
+        console.log(div)
+        $('.features_items').html(div)
+    )
+
+  RGBChange = ->
+    $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 
 

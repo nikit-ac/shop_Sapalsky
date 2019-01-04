@@ -5,7 +5,18 @@ ru:
         title: 'Название'
         description: 'Описание'
         price: 'Цена'
-
+      order:
+        delivery_info: "Информация о доставке"
+        email: "Электронная почта"
+        phone: "Телефон"
+        name: "Имя"
+  helpers:
+    label:
+      order:
+        delivery_info: "Информация о доставке"
+        email: "Электронная почта"
+        phone: "Телефон"
+        name: "Имя"
 # ru.activerecord.errors.models.product.attributes.status.inclusion
 
   time:
