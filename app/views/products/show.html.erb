@@ -4,17 +4,19 @@
       <div id="product-images">
         <div id="product-big-image" class='tmb tmb-big'>
           <% @product.images.each do |image| %>
-            <% if image == @product.images.first %>
-              <%= image_tag(image.image.url(), class: 'img-show active', id: 'img' + image.id.to_s) %>
-            <% else %>
-              <%= image_tag(image.image.url(), class: 'img-show', id: 'img' + image.id.to_s) %>
-            <% end %>
+            <a href="<%= image.image.url() %>" data-lightbox="roadtrip">
+              <% if image == @product.images.first %>
+                <%= image_tag(image.image.url(), class: 'img-show active', id: 'img' + image.id.to_s) %>
+              <% else %>
+                <%= image_tag(image.image.url(), class: 'img-show', id: 'img' + image.id.to_s) %>
+              <% end %>
+            </a>
           <% end %>
         </div>
         <ul id="product-thumbnails" class="thumbnails list-inline" data-hook="">
           <% @product.images.each do |image| %>
             <li class="tmb">
-              <%= image_tag(image.image.url(:thumb), data: image.id) %>
+              <%= image_tag(image.image.url(:thumb), data: image.id ) %>
             </li>
           <% end %>
         </ul>

@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
   end
 
   def range
-    @products = Product.where(status: Product::ACTIVE).where(price: ActiveSupport::JSON.decode(params[:prices]).max.to_i..ActiveSupport::JSON.decode(params[:prices]).min.to_i)
+    range = ActiveSupport::JSON.decode(params[:prices]).collect {|i| i.to_i}
+    @products = Product.where(status: Product::ACTIVE).where(price: range.min..range.max)
     render "index"
   end
 

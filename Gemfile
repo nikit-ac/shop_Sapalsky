@@ -35,6 +35,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'lightbox2-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
