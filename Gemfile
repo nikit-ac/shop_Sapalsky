@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
-gem 'activeadmin_quill_editor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
