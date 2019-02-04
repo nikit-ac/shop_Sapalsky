@@ -2,7 +2,8 @@
   <div class="features_items"><!--features_items-->
     <h2 class="title text-center">Товары</h2>
     <div class='row' id='products'>
-      <%= render @products  %>
+      <%= render @products %>
+      <%= will_paginate @products, :previous_label => 'Назад', :next_label => 'Вперед' %>
     </div><!--id='products'-->
   </div><!--features_items-->
 </div>

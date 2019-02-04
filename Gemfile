@@ -33,9 +33,12 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'lightbox2-rails'
+gem 'ancestry'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'rails-i18n'
+gem 'faker', :git => 'https://github.com/stympy/faker.git'
+gem 'will_paginate', '~> 3.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

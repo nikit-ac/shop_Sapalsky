@@ -1,10 +1,13 @@
 class Product < ApplicationRecord
+  belongs_to :category
   has_many :images
   has_many :orders
   accepts_nested_attributes_for :images, allow_destroy: true
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :tags
+
+  self.per_page = 12
 
   HIDDEN = 1
   ACTIVE = 2

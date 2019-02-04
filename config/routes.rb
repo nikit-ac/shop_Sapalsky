@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get '/products/tag/:name', to: 'products#tag', as: 'tag_products'
-
+  get '/products/category/:name', to: 'products#category', as: 'category_products'
+  post '/products/tag', to: 'products#tag', as: 'find_by_tag'
 
 end

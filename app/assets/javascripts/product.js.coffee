@@ -30,4 +30,3 @@ $(document).on "turbolinks:load", ->
   RGBChange = ->
     $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 
-

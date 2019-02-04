@@ -43,7 +43,18 @@
     <div class="header-middle"><!--header-bottom-->
       <div class="container">
         <div class="row">
-          <%= link_to "Магазин", "/" %>
+          <div class="col-lg-8">
+            <%= link_to "Магазин", "/" %>
+          </div>
+          <div class="col-lg-4">
+            <%= form_tag(find_by_tag_path()) do %>
+              <div class="input-group">
+                <input type="text" name='name' class="input-medium search-query"
+                       placeholder="Поиск по тегу">
+                <button type="submit" class="btn">Найти</button>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div><!--/header-bottom-->
@@ -54,9 +65,30 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="left-sidebar">
+
+            <h2>Категори</h2>
+            <div class="panel-group category-products"><!--category-productsr-->
+              <% category_list().each do |category|  %>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <%= link_to category.name, category_products_path(category) %>
+                    </h4>
+                    <% if category.has_children? %>
+                      <% category.children.each do |child| %>
+                        <h5 class="panel-title child">
+                          <%= link_to child.name, category_products_path(child) %>
+                        </h5>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div><!--/category-products-->
+
             <h2>Тэги</h2>
             <div class="panel-group category-products"><!--category-productsr-->
-              <% ActsAsTaggableOn::Tag.all.each do |tag|  %>
+              <% ActsAsTaggableOn::Tag.most_used(10).each do |tag|  %>
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -153,9 +185,3 @@
 
   </body>
 </html>
-<!--  1. В админке не видно картинок
-      2. Js не работает при переходе по ссылке
-      3. На других страницах не видно слайдера
-      4. Выпадающий список в админке (статус заказа)
-
- -->
