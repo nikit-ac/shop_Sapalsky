@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_094042) do
+ActiveRecord::Schema.define(version: 2019_02_04_113832) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2019_01_03_094042) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "image"
     t.integer "product_id"
@@ -63,8 +71,10 @@ ActiveRecord::Schema.define(version: 2019_01_03_094042) do
     t.text "description"
     t.integer "price"
     t.integer "status"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "taggings", force: :cascade do |t|

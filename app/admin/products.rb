@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 
-  permit_params :id, :title, :description, :price, :tag_list, :status, images_attributes: [:id, :image, :_destroy]
+  permit_params :id, :title, :description, :price, :tag_list, :status, :category_id, images_attributes: [:id, :image, :_destroy]
 #
 # or
 #
@@ -20,6 +20,7 @@ ActiveAdmin.register Product do
     column :id
     column "Название", :title
     column "Описание", :description
+    column "Категория", :category
     column "Цена", :price
     column "Статус", :status do |product|
       Product.statuses.key(product.status)
@@ -32,10 +33,11 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs 'Подробнее' do
       f.input :title
-      f.input :description#, as: :quill_editor
+      f.input :description
       f.input :price
-      f.input :tag_list
-      f.input :status, :as => :select, :collection => Product.statuses #({'Не показывать' => 1, 'Активный' => 2})
+      f.input :tag_list, :hint => 'Тэги добавлять через запятую'
+      f.input :category
+      f.input :status, :as => :select, :collection => Product.statuses
 
 
     end

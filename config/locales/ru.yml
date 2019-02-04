@@ -10,6 +10,12 @@ ru:
         email: "Электронная почта"
         phone: "Телефон"
         name: "Имя"
+      errors:
+        models:
+          product:
+            attributes:
+              category:
+                required: "Необходимо выбрать категорию"
   helpers:
     label:
       order:
@@ -18,7 +24,25 @@ ru:
         phone: "Телефон"
         name: "Имя"
 # ru.activerecord.errors.models.product.attributes.status.inclusion
-
   time:
+    am: утра
     formats:
       long: "%Y-%m-%d %H:%M:%S"
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+    pm: вечера
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+
+  devise:
+    failure:
+      admin_user:
+        unauthenticated: 'Не авторизован'
+    sessions:
+      admin_user:
+        signed_in: 'Успешно авторизован'

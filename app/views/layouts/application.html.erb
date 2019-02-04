@@ -43,7 +43,18 @@
     <div class="header-middle"><!--header-bottom-->
       <div class="container">
         <div class="row">
-          <%= link_to "Магазин", "/" %>
+          <div class="col-lg-8">
+            <%= link_to "Магазин", "/" %>
+          </div>
+          <div class="col-lg-4">
+            <%= form_tag('/posts') do %>
+              <div class="input-group">
+                <input type="text" class="input-medium search-query"
+                       placeholder="Поиск">
+                <button type="submit" class="btn">Найти</button>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div><!--/header-bottom-->
@@ -54,6 +65,27 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="left-sidebar">
+
+            <h2>Категори</h2>
+            <div class="panel-group category-products"><!--category-productsr-->
+              <% category_list().each do |category|  %>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <%= link_to category.name %>
+                    </h4>
+                    <% if category.has_children? %>
+                      <% category.children.each do |child| %>
+                        <h5 class="panel-title child">
+                          <%= link_to child.name %>
+                        </h5>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div><!--/category-products-->
+
             <h2>Тэги</h2>
             <div class="panel-group category-products"><!--category-productsr-->
               <% ActsAsTaggableOn::Tag.all.each do |tag|  %>

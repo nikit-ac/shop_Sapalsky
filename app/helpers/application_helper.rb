@@ -5,4 +5,7 @@ module ApplicationHelper
   def max_price()
     Product.where(status: Product::ACTIVE).maximum(:price)
   end
+  def category_list()
+    Category.roots()
+  end
 end
