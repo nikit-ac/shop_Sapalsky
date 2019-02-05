@@ -12,6 +12,7 @@ Category.create!([
   {name: 'Инструменты'},
   {name: 'Материалы'},
   {name: 'Услуги'}
+<<<<<<< HEAD
 ])
 # 100.times do
 #   Product.create!([{
@@ -23,3 +24,6 @@ Category.create!([
 #     tag_list: Faker::Device.platform + ', ' + Faker::Device.manufacturer
 #   }])
 # end
+=======
+])
+>>>>>>> f584d11d8d66516728b67cf8576e285a415c1135
