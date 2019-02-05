@@ -13,13 +13,13 @@ Category.create!([
   {name: 'Материалы'},
   {name: 'Услуги'}
 ])
-# 100.times do
-#   Product.create!([{
-#     title: Faker::Device.model_name,
-#     description: Faker::Device.serial,
-#     price: rand(100) * 100,
-#     status: Product::ACTIVE,
-#     category_id: rand(3) + 1,
-#     tag_list: Faker::Device.platform + ', ' + Faker::Device.manufacturer
-#   }])
-# end
+100.times do
+  Product.create!([{
+    title: Faker::Device.model_name,
+    description: Faker::Device.serial,
+    price: rand(100) * 100,
+    status: Product::ACTIVE,
+    category_id: rand(3) + 1,
+    tag_list: Faker::Device.platform + ', ' + Faker::Device.manufacturer
+  }])
+end
