@@ -19,6 +19,7 @@ unless Category.exists?(name: 'Ножи')
   ])
 end
 
+
 100.times do
   Product.create!([{
     title: Faker::Device.model_name,
