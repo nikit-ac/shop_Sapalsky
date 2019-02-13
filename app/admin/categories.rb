@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :id, :name, :ancestry
+  permit_params :id, :name
   form do |f|
     f.inputs 'Подробнее' do
       f.input :name
