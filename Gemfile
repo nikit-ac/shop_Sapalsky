@@ -37,7 +37,7 @@ gem 'ancestry'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'rails-i18n'
-gem 'will_paginate', '~> 3.1.0'
+gem "will_paginate"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'faker', :git => 'https://github.com/stympy/faker.git'
@@ -48,7 +48,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3'
+  gem "sqlite3", "~> 1.3.6"
 
 end
 
